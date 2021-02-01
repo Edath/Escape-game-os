@@ -1,0 +1,25 @@
+{
+  "name": "os-escape-game",
+  "version": "1.0.0",
+  "description": "Faux Os qui sera utilisé dans le cadre de l'escape game",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edath/Escape-game-os.git"
+  },
+  "keywords": [
+    "os"
+  ],
+  "author": "Elise",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Edath/Escape-game-os/issues"
+  },
+  "homepage": "https://github.com/Edath/Escape-game-os#readme",
+  "devDependencies": {
+    "electron": "^11.2.1"
+  }
+}
