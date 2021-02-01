@@ -2,9 +2,10 @@
   "name": "os-escape-game",
   "version": "1.0.0",
   "description": "Faux Os qui sera utilisé dans le cadre de l'escape game",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "electron ."
+    "test": "electron .",
+    "start": "electron"
   },
   "repository": {
     "type": "git",
