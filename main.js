@@ -1,4 +1,4 @@
-import 'bootstrap';
+// import "node_modules/bootstrap/dist/css/bootstrap.css";
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
@@ -9,7 +9,7 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-
+  
   win.loadFile('src/index.html')
 }
 
