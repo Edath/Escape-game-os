@@ -1,5 +1,6 @@
 // import "node_modules/bootstrap/dist/css/bootstrap.css";
 const { app, BrowserWindow } = require('electron')
+const ipc = require('electron').ipcMain
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -9,9 +10,12 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-  
+
   win.loadFile('src/index.html')
+  win.webContents.openDevTools()
 }
+
+
 
 app.whenReady().then(createWindow)
 
@@ -24,5 +28,11 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
+  }
+})
+
+ipc.on('enter-desktop', function(event, arg){
+  if (arg == '1234'){
+    win.loadFile('src/desktop.html')
   }
 })
