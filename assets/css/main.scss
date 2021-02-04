@@ -1,2 +1,8 @@
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
 
+allcentered{
+    display:table-cell;
+    margin-left: auto;
+    margin-right:auto;
+    vertical-align: middle
+}

@@ -1,5 +1,5 @@
 // import "node_modules/bootstrap/dist/css/bootstrap.css";
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, remote } = require('electron')
 const ipc = require('electron').ipcMain
 
 function createWindow () {
@@ -7,12 +7,12 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
   })
 
   win.loadFile('src/index.html')
-  win.webContents.openDevTools()
 }
 
 
@@ -33,6 +33,17 @@ app.on('activate', () => {
 
 ipc.on('enter-desktop', function(event, arg){
   if (arg == '1234'){
+    event.sender.send('ok',arg)
+    const win = new BrowserWindow({
+      width: 800,
+      height: 600,
+      webPreferences: {
+        nodeIntegration: true,
+        enableRemoteModule: true
+      }
+    })
+  
     win.loadFile('src/desktop.html')
   }
+  
 })
