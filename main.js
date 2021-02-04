@@ -6,11 +6,15 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    frame:false,
     webPreferences: {
       nodeIntegration: true,
+      fullscreen:true,
+      closable:false,
       enableRemoteModule: true
     }
   })
+  win.maximize();
 
   win.loadFile('src/index.html')
 }
@@ -37,12 +41,13 @@ ipc.on('enter-desktop', function(event, arg){
     const win = new BrowserWindow({
       width: 800,
       height: 600,
+      frame:false,
       webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true
       }
     })
-  
+    win.maximize();
     win.loadFile('src/desktop.html')
   }
   
