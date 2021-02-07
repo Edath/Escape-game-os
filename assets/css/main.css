@@ -49,15 +49,31 @@
 
 }
 .dossier:hover{
-    background-color: rgba(64,64,64,.5);
+    background-color: rgba(123,123,123,.5);
+    outline: 1px solid grey;
 }
 
+.contenant_icon{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.text_icon{
+  font-size: 30px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: #533A3D 1.5px 1.5px, #533A3D -1.5px 1.5px, #533A3D -1.5px -1.5px, #533A3D 1.5px -1.5px;
+
+}
   
   .pixel{
     padding: 0;
     font-size: 20px;
     color: white;
-    background-color: rgb(179, 187, 195);
+    background-color: rgba(179, 187, 195, .0);
     height: auto;
     margin: 10px;
     font-family: 'VT323';
