@@ -22,7 +22,7 @@
         <div class="row col-12">
             <a href="" target="_blank" class="dossier">
                 <div class="contenant_icon">
-                    <img src = "../assets/images/corbeille.png" height= "200px" class="pb-2 img-responsive"/>
+                    <img src = "../assets/images/corbeille.png" id="trash" height= "200px" class="pb-2 img-responsive"/>
                     <h1 class= "text_icon">Corbeille</h1>
                 </div>     
             </a>
@@ -30,7 +30,7 @@
         <div class="row col-12">
             <a href="" target="_blank" class="dossier">
                 <div class="contenant_icon">
-                    <img src = "../assets/images/chrome.png" height= "200px" class="pb-2 img-responsive"/>
+                    <img src = "../assets/images/chrome.png" id="navigator" height= "200px" class="pb-2 img-responsive"/>
                     <h1 class= "text_icon">Navigateur</h1>
                 </div> 
             </a>
@@ -38,7 +38,7 @@
         <div class="row col-12">
             <a href="" target="_blank" class="dossier">
                 <div class="contenant_icon">
-                    <img src = "../assets/images/dossier.png" height= "200px" class="pb-2 img-responsive"/>
+                    <img src = "../assets/images/dossier.png" id="folder" height= "200px" class="pb-2 img-responsive"/>
                     <h1 class= "text_icon">Vidéos Youtube</h1>
                 </div> 
             </a>
@@ -48,7 +48,7 @@
     <div class="container d-flex " style="min-height: 30%; height:30vh;">
         
     </div>
-
+    <div style="min-height: 10%; height:10vh;"></div>
     <div class="container-fluid d-flex align-items-end justify-content-end">
         <!-- Button trigger modal -->
         <button type="button" class="pixel" data-toggle="modal" data-target="#exampleModalCenter">
@@ -60,21 +60,22 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Voulez-vous un indice?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ... 
+                        Ceci est un exemple d'indice
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="../renderer.js"></script>
 </body>
 </html>
