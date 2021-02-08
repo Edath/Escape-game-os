@@ -1,0 +1,10 @@
+{
+    "connection": false,
+    "encounter": false,
+    "trash":false,
+    "recuperation":false,
+    "note":false,
+    "password":false,
+    "backup":false,
+    "final":false
+}
