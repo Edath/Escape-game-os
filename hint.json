@@ -6,5 +6,6 @@
     "note":false,
     "password":false,
     "backup":false,
-    "final":false
+    "final":false,
+    "step":0
 }
