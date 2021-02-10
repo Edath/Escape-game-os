@@ -1,8 +1,27 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // import "node_modules/bootstrap/dist/css/bootstrap.css";
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, remote } = require('electron');
+const storage = require('electron-json-storage');
 
 const ipc = require('electron').ipcMain;
+
+ipc.on('getData', function (event, arg) {
+  storage.get('hint', function (error, data) {
+    if (error) throw error;
+    console.log(data);
+    event.sender.send('data', data);
+  });
+});
+
+function saveAppData (data) {
+  storage.set('hint', data, function (error) {
+    if (error) throw error;
+  });
+}
+
+ipc.on('saveData', function (event, arg) {
+  saveAppData(arg);
+});
 
 function createWindow () {
   const win = new BrowserWindow({
