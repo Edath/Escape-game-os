@@ -53,7 +53,11 @@
     background-color: rgba(123,123,123,.5);
     outline: 1px solid grey;
 }
-
+.contenant_button{
+  position:relative;
+  text-align:center;
+  cursor:pointer;
+}
 .contenant_icon{
   position: relative;
   text-align: center;

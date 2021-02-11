@@ -3,7 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title>Corbeille</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script>window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.slim.min.js');</script>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    
+    <script src="../node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <div class ="contenant_button"> 
+            <img src = "../assets/images/vider.png" id="" height= "80px" class="pb-2 img-responsive" style="padding:0 !important;"/>
+            <a class="nav-link" href="#">Vider la corbeille </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class ="contenant_button"> 
+            <img src = "../assets/images/restaurer.png" id="" height= "80px" class="pb-2 img-responsive" style="padding:0 !important;"/>
+            <a class="nav-link" href="#">Restaurer les éléments </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class ="contenant_button"> 
+            <img src = "../assets/images/recuperer.png" id="" height= "80px" class="pb-2 align-self-center" style="padding:0 !important;"/>
+            <a class="nav-link" href="#">Récupérer les données </a>
+          </div>
+        </li>
+      </ul>
+
+      <div>
+        
+      </div>
+
+    </nav>
   </body>
 </html>

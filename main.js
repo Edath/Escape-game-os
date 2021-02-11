@@ -8,7 +8,6 @@ const ipc = require('electron').ipcMain;
 ipc.on('getData', function (event, arg) {
   storage.get('hint', function (error, data) {
     if (error) throw error;
-    console.log(data);
     event.sender.send('data', data);
   });
 });
@@ -82,7 +81,7 @@ ipc.on('trash', (event, arg) => {
       width: 800,
       height: 600,
       frame: true,
-      parent: BrowserWindow.getAllWindows()[0],
+      // parent: BrowserWindow.getAllWindows()[0],
       modal: true,
       webPreferences: {
         nodeIntegration: true,
@@ -90,6 +89,7 @@ ipc.on('trash', (event, arg) => {
       }
     });
     win.removeMenu();
+    win.webContents.openDevTools();
     win.loadFile('src/trash.html');
     win.setIcon('assets/images/corbeille.png');
   }
