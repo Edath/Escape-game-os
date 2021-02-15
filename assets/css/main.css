@@ -49,6 +49,13 @@
     background-color:rgba(64,64,64,.0)
 
 }
+
+.clickable{
+
+}
+.clickable:hover{
+  background-color:#E5E5F7;
+}
 .dossier:hover{
     background-color: rgba(123,123,123,.5);
     outline: 1px solid grey;
@@ -89,6 +96,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: #3D3B31 1.25px 1.25px, #3D3B31 -1.25px 1.25px, #3D3B31 -1.25px -1.25px, #3D3B31 1.25px -1.25px;
+}
+
+.no-pad{
+  padding:0 !important;
+  margin:0 !important;
 }
   
   .pixel{
