@@ -64,6 +64,15 @@
   color: white;
 }
 
+.contenant_files{
+  position: relative;
+  text-align: center;
+}
+.back-mail{
+  background-color: #E5E5F7;
+
+  background: repeating-linear-gradient( -45deg, #b3bbc3, #b3bbc3 10px, #E5E5F7 10px, #E5E5F7 50px );
+}
 .text_icon{
   font-size: 30px;
   position: absolute;
@@ -72,6 +81,14 @@
   transform: translate(-50%, -50%);
   text-shadow: #533A3D 1.5px 1.5px, #533A3D -1.5px 1.5px, #533A3D -1.5px -1.5px, #533A3D 1.5px -1.5px;
 
+}
+.text_file{
+  font-size: 20px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: #3D3B31 1.25px 1.25px, #3D3B31 -1.25px 1.25px, #3D3B31 -1.25px -1.25px, #3D3B31 1.25px -1.25px;
 }
   
   .pixel{

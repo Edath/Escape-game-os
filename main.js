@@ -22,6 +22,7 @@ ipc.on('saveData', function (event, arg) {
   saveAppData(arg);
 });
 
+// ouverture de base
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
@@ -38,7 +39,7 @@ function createWindow () {
 
   win.maximize();
 
-  win.loadFile('src/index.html');
+  win.loadFile('src/mail.html');
 }
 
 app.whenReady().then(createWindow);
@@ -54,7 +55,7 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
+// ouvre le bureau
 ipc.on('enter-desktop', function (event, arg) {
   if (arg === '1234') {
     event.sender.send('ok', arg);
@@ -72,7 +73,7 @@ ipc.on('enter-desktop', function (event, arg) {
     win.loadFile('src/desktop.html');
   }
 });
-
+// ouvre la corbeille
 ipc.on('trash', (event, arg) => {
   const windows = BrowserWindow.getAllWindows();
   //   const titles = windows.map(element => element.getTitle());
@@ -95,6 +96,7 @@ ipc.on('trash', (event, arg) => {
   }
 });
 
+// ouvre le navigateur
 ipc.on('navigator', (event, arg) => {
   const windows = BrowserWindow.getAllWindows();
   if (windows.length === 1) {
