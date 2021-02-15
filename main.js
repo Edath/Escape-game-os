@@ -39,7 +39,7 @@ function createWindow () {
 
   win.maximize();
 
-  win.loadFile('src/index.html');
+  win.loadFile('src/mail.html');
 }
 
 app.whenReady().then(createWindow);

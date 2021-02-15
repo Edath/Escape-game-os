@@ -49,9 +49,10 @@
     background-color:rgba(64,64,64,.0)
 
 }
-
+.validated{
+  border: 5px solid rgba(0,128,0,0.68);
+}
 .clickable{
-
 }
 .clickable:hover{
   background-color:#E5E5F7;

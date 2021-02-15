@@ -9,6 +9,7 @@ password_form.addEventListener('submit', function () {
   ipc.send('enter-desktop', document.getElementById('password').value);
 });
 
+// à nettoyer
 ipc.on('ok', function (event, arg) {
   const win = remote.getCurrentWindow();
   win.close();
