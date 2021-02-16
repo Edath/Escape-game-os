@@ -54,6 +54,7 @@
 }
 .clickable{
 }
+canvas {display: block;}
 .clickable:hover{
   background-color:#E5E5F7;
 }
