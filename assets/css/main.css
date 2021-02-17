@@ -44,19 +44,22 @@
     background-size: cover;
 }
 
-.dossier{
-  cursor: pointer;
-    background-color:rgba(64,64,64,.0)
 
-}
 .validated{
-  border: 5px solid rgba(0,128,0,0.68);
+  outline: 5px solid rgba(0,128,0,0.68);
+  outline-offset: -5px;
+
 }
 .clickable{
 }
 canvas {display: block;}
 .clickable:hover{
   background-color:#E5E5F7;
+}
+.dossier{
+  cursor: pointer;
+    background-color:rgba(64,64,64,.0)
+
 }
 .dossier:hover{
     background-color: rgba(123,123,123,.5);

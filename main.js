@@ -33,14 +33,21 @@ ipc.on('getData-maj', function (event, arg) {
   }
 });
 
+function saveAppDataos (data) {
+  storage.set('os', data, function (error) {
+    if (error) throw error;
+  });
+}
 function saveAppData (data) {
   storage.set('hint', data, function (error) {
     if (error) throw error;
   });
 }
-
 ipc.on('saveData', function (event, arg) {
   saveAppData(arg);
+});
+ipc.on('saveDataos', function (event, arg) {
+  saveAppDataos(arg);
 });
 
 // ouverture de base

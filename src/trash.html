@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../assets/css/main.css"/>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
-    
-    <script src="../node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </head>
   <body style="     width: 100%;
@@ -18,33 +17,56 @@
                     overflow-x: hidden; ">
     <nav class="navbar navbar-dark bg-dark navbar-expand no-pad">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <div class ="contenant_button"> 
-            <img src = "../assets/images/vider.png" id="empty" height= "100px" class="pb-2 img-responsive" style="padding:0 !important;"/>
+        <li class="nav-item active pb-2 pl-2">
+          <div class ="contenant_button dossier " id="empty" style=> 
+            <img src = "../assets/images/vider.png"  height= "100px" class="pb-2 img-responsive" style="padding:0 !important;"/>
             <a class="nav-link" href="#">Vider la corbeille </a>
           </div>
         </li>
         <li class="nav-item">
-          <div class ="contenant_button"> 
-            <img src = "../assets/images/restaurer.png" id="restaure" height= "100px" class="pb-2 img-responsive" style="padding:0 !important;"/>
+          <div class ="contenant_button dossier" id="restaure" tabindex="0" role="button" data-bs-toggle="popover" data-trigger="focus" title="Hm" data-content="Je ne pense pas que ce soit nécessaire ici..."> 
+            <img src = "../assets/images/restaurer.png"  height= "100px" class="pb-2 img-responsive" style="padding:0 !important;"/>
             <a class="nav-link" href="#">Restaurer les éléments </a>
           </div>
         </li>
         <li class="nav-item">
-          <div class ="contenant_button"> 
-            <img src = "../assets/images/recuperer.png" id="recup" height= "100px" class="pb-2 align-self-center" style="padding:0 !important;"/>
+          <div class ="contenant_button dossier" id="recup"> 
+            <img src = "../assets/images/recuperer.png"  height= "100px" class="pb-2 align-self-center" style="padding:0 !important;"/>
             <a class="nav-link" href="#">Récupérer les données </a>
           </div>
         </li>
       </ul>
     </nav>
     <div class="row">    
-        <div class="contenant_icon" id="picture" style="">
+      <div class="contenant_icon" id="picture" style="">
       </div>
       <div class="contenant_icon" id="note" style="">
       </div>
-  </div>
+    </div>
+<!-- Button trigger modal -->
 
+<!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Note importante pour le cryptage</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body font-monospace">
+                Clé pour verrouiller et déverrouiller les données: </br>
+
+                mon pseudo + nom de mon chat + mon mot de passe habituel 
+            </div>
+            <div class="modal-footer">
+                <div class="text-muted font-monospace">Auteur : Gru</div>
+
+            </div>
+        </div>
+    </div>
+    </div> <!-- fin de la modale -->
 
     <script src="../renderer_trash.js"></script>
   </body>
