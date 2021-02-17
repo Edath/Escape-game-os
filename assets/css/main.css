@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'pixel';
+  font-style: normal;
+  font-weight: 300;
+  src: url(assets\fonts\VT323-Regular.woff) format('woff');
+}
 
 .password-font{
     font-size:60pt;

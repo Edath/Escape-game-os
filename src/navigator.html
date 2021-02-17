@@ -3,8 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Navigateur</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script>window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.slim.min.js');</script>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </head>
-  <body>
-    
+  <body class= ""style="     width: 100%;
+                            margin: 0px;
+                            padding: 0px;
+                            overflow-x: hidden; ">
+
+<div class="container d-flex justify-content-center" style="min-height: 93%; height:93vh;">
+  <div class="row align-self-center bottom-line"> 
+    <div class="card text-center dossier " style="width: 60vh; height:30vh;" id="fb">
+      <div class="card-body ">
+        <div>
+          <img src="../assets/images/facebok.png" style="height:30px; width:auto;" class="card-img-top " alt="...">
+        </div>
+      </div>
+  </div>
+  <div class="card text-center dossier" style="width: 60vh; height:30vh;" id="insta">
+    <div class="card-body">
+      <img src="../assets/images/instagram.png" style="height:30px; width:auto;" class="card-img-top" alt="...">
+    </div>
+</div>
+</div>
+<script src="../renderer_nav.js"></script>
   </body>
 </html>

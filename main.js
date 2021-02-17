@@ -161,6 +161,44 @@ ipc.on('navigator', (event, arg) => {
     win.setIcon('assets/images/chrome.png');
   }
 });
+
+ipc.on('fb', (event, arg) => {
+  const windows = BrowserWindow.getAllWindows();
+  if (windows.length === 2) {
+    const win = new BrowserWindow({
+      width: 1000,
+      height: 800,
+      frame: true,
+      parent: BrowserWindow.getAllWindows()[1],
+      modal: true,
+      webPreferences: {
+        nodeIntegration: true,
+        enableRemoteModule: true
+      }
+    });
+    win.loadFile('src/fb.html');
+    win.setIcon('assets/images/chrome.png');
+  }
+});
+
+ipc.on('insta', (event, arg) => {
+  const windows = BrowserWindow.getAllWindows();
+  if (windows.length === 2) {
+    const win = new BrowserWindow({
+      width: 1000,
+      height: 800,
+      frame: true,
+      parent: BrowserWindow.getAllWindows()[1],
+      modal: true,
+      webPreferences: {
+        nodeIntegration: true,
+        enableRemoteModule: true
+      }
+    });
+    win.loadFile('src/insta.html');
+    win.setIcon('assets/images/chrome.png');
+  }
+});
 // open folder of pictures
 ipc.on('folder', (event, arg) => {
   const windows = BrowserWindow.getAllWindows();
