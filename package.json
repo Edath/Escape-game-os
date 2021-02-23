@@ -1,11 +1,13 @@
 {
-  "name": "os-escape-game",
+  "name": "os",
   "version": "1.0.0",
-  "description": "Faux Os qui sera utilisé dans le cadre de l'escape game",
+  "description": "Faux Os qui sera utilise dans le cadre de l escape game",
   "main": "main.js",
   "scripts": {
     "test": "electron .",
-    "start": "electron"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": {
     "type": "git",
@@ -21,8 +23,12 @@
   },
   "homepage": "https://github.com/Edath/Escape-game-os#readme",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "^11.2.1",
-    "electron-builder": "^22.9.1",
     "eslint": "^7.19.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
@@ -32,7 +38,37 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "electron-json-storage": "^4.3.0",
+    "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "os_escape_game"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

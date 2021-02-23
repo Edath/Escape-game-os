@@ -10,6 +10,10 @@ const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl);
 });
 
+function getHint () {
+  // storage.get()
+}
+
 recup.addEventListener('click', function () {
   storage.get('os', function (error, data) {
     if (error) throw error;

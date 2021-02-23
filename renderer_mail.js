@@ -1,6 +1,7 @@
 const { remote } = require('electron');
 const { desktopCapturer } = require('electron/common');
 const ipc = require('electron').ipcRenderer;
+const storage = require('electron-json-storage');
 
 const mail = document.getElementById('mail');
 const object = document.getElementById('object');
@@ -12,6 +13,7 @@ const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl);
 });
 
+console.log(storage.getDefaultDataPath());
 butt.addEventListener('click', function () {
   const win = remote.getCurrentWindow();
   close(win);
