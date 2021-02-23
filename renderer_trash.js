@@ -11,7 +11,9 @@ const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 });
 
 function getHint () {
-  // storage.get()
+  storage.get('hint', function (error, data) {
+    if (error) throw error;
+  });
 }
 
 recup.addEventListener('click', function () {

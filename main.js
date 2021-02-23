@@ -125,7 +125,7 @@ ipc.on('trash', (event, arg) => {
   //   const titles = windows.map(element => element.getTitle());
   if (windows.length === 1) {
     const win = new BrowserWindow({
-      width: 800,
+      width: 1000,
       height: 600,
       frame: true,
       parent: BrowserWindow.getAllWindows()[0],
@@ -136,7 +136,6 @@ ipc.on('trash', (event, arg) => {
       }
     });
     win.removeMenu();
-    win.webContents.openDevTools();
     win.loadFile('src/trash.html');
     win.setIcon('assets/images/corbeille.png');
   }
