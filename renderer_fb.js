@@ -8,7 +8,7 @@ prof.addEventListener('submit', function (event) {
   // prevent from reloading
   event.preventDefault();
   const cont = document.getElementById('content').value;
-  if (cont === 'a') {
+  if (cont === 'John Lundy') {
     const main = document.getElementById('main');
     main.remove();
     const myvar = '<img src="../assets/images/fb profile.png">';

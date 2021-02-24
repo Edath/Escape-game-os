@@ -31,6 +31,9 @@ function maj () {
     if (data.step === 1) {
       document.getElementById('hint').innerHTML = '<h4>L’attaquant a sûrement placé des fichiers sur l’ordinateur pour faire son attaque. Je ne les vois pas… il les aurait mis dans la corbeille ?  </h4>';
     }
+    if (data.step === 2) {
+      document.getElementById('hint').innerHTML = '<h4>On se rapproche ! Pour son pseudo, ça ne doit pas être difficile, ce gars laisse des traces partout ! Ce type m’a l’air d’être du genre à poster des photos de son chat partout… J’irais d\'abord vérifier sur instagram. Vous connaissez son pseudo sur les réseaux, non ?  </h4>';
+    }
   });
 }
 maj();

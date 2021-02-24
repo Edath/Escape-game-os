@@ -3,7 +3,7 @@ const storage = require('electron-json-storage');
 
 const recup = document.getElementById('recup');
 const empty = document.getElementById('empty');
-
+const note = document.getElementById('note');
 // popovers enabling
 const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
 const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -21,7 +21,18 @@ function hinty () {
 }
 
 hinty();
-
+note.addEventListener('click', function () {
+  storage.get('hint', function (error, data) {
+    if (error) throw error;
+    if (data.step === 1) {
+      data.step = 2;
+      storage.set('hint', data, function (error) {
+        if (error) throw error;
+      });
+      ipc.send('majDesk');
+    }
+  });
+});
 recup.addEventListener('click', function () {
   storage.get('os', function (error, data) {
     if (error) throw error;

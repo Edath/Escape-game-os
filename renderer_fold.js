@@ -16,7 +16,6 @@ function opening () {
       });
       ipc.send('majDesk');
     }
-    ipc.send('majDesk');
   });
 }
 opening();

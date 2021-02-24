@@ -92,7 +92,7 @@ app.on('activate', () => {
 });
 // ouvre le bureau
 ipc.on('enter-desktop', function (event, arg) {
-  if (arg === '1234') {
+  if (arg === '4862') {
     event.sender.send('ok', arg);
     const win = new BrowserWindow({
       width: 800,
@@ -146,6 +146,7 @@ ipc.on('trash', (event, arg) => {
     });
     win.removeMenu();
     win.loadFile('src/trash.html');
+    win.webContents.openDevTools();
     win.setIcon('assets/images/corbeille.png');
   }
 });
