@@ -10,11 +10,17 @@ const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl);
 });
 
-function getHint () {
+function hinty () {
   storage.get('hint', function (error, data) {
     if (error) throw error;
+    console.log('ok');
+    if (data.step === 1) {
+      document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données.  </h4>';
+    }
   });
 }
+
+hinty();
 
 recup.addEventListener('click', function () {
   storage.get('os', function (error, data) {
@@ -51,6 +57,7 @@ function maj () {
   storage.get('os', function (error, data) {
     if (error) throw error;
     // s'occupe de retirer les images avant d'en remettre
+    document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données.  </h4>';
     if (document.getElementById('pic') != null) {
       document.getElementById('picture').removeChild(document.getElementById('pic'));
     }
@@ -63,7 +70,7 @@ function maj () {
       if (data.picture === 'visible') {
         const myvar = '<div class="" id="pic" style="">' +
                 '<img src = "../assets/images/picture.png" height="200px" class="" style="padding: 0;"/>' +
-      '          <h1 class= "text_file" style="padding: 0;">picture.png</h1>' +
+      '          <h1 class= "text_file" style="padding: 0;">image.png</h1>' +
       '</div>';
         document.getElementById('picture').insertAdjacentHTML('beforeend', myvar);
       }
@@ -73,6 +80,7 @@ function maj () {
       '<img src = "../assets/images/document.png" height="200px" class="" style="padding: 0;"/>' +
       '          <h1 class= "text_file" style="padding: 0;">Note.txt</h1>' +
       '</div>';
+      document.getElementById('hint').innerHTML = '<h4>C\'est sûrement l\'attaquant qui a laissé ça ici! </h4>';
       document.getElementById('note').insertAdjacentHTML('beforeend', myvar);
     }
   });

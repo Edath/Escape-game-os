@@ -20,6 +20,21 @@ navigator.addEventListener('click', function () {
   ipc.send('navigator', 'false');
 });
 
+ipc.on('info', function (event, arg) {
+  maj();
+});
+
+function maj () {
+  storage.get('hint', function (error, data) {
+    if (error) throw error;
+
+    if (data.step === 1) {
+      document.getElementById('hint').innerHTML = '<h4>L’attaquant a sûrement placé des fichiers sur l’ordinateur pour faire son attaque. Je ne les vois pas… il les aurait mis dans la corbeille ?  </h4>';
+    }
+  });
+}
+maj();
+
 // ipc.on('data', function (event, arg) {
 //   const data = prepareHintObject(arg);
 //   ipc.send('saveData', data);

@@ -50,6 +50,15 @@ ipc.on('saveDataos', function (event, arg) {
   saveAppDataos(arg);
 });
 
+ipc.on('majDesk', function (event, arg) {
+  const wins = BrowserWindow.getAllWindows();
+  for (let i = 0; i < wins.length; i++) {
+    if (wins[i].getTitle() === 'Bureau') {
+      wins[i].webContents.send('info', { msg: 'hi' });
+    }
+  }
+});
+
 // ouverture de base
 function createWindow () {
   const win = new BrowserWindow({
@@ -125,7 +134,7 @@ ipc.on('trash', (event, arg) => {
   //   const titles = windows.map(element => element.getTitle());
   if (windows.length === 1) {
     const win = new BrowserWindow({
-      width: 1000,
+      width: 800,
       height: 600,
       frame: true,
       parent: BrowserWindow.getAllWindows()[0],
@@ -198,6 +207,7 @@ ipc.on('insta', (event, arg) => {
     win.setIcon('assets/images/chrome.png');
   }
 });
+
 // open folder of pictures
 ipc.on('folder', (event, arg) => {
   const windows = BrowserWindow.getAllWindows();

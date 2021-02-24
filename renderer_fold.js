@@ -1,10 +1,25 @@
-const { remote } = require('electron');
-const { desktopCapturer } = require('electron/common');
-const ipc = require('electron').ipcRenderer;
 
+const ipc = require('electron').ipcRenderer;
+const storage = require('electron-json-storage');
 // Initialising the canvas
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
+
+function opening () {
+  storage.get('hint', function (error, data) {
+    if (error) throw error;
+    if (data.step === 0) {
+      data.step = 1;
+
+      storage.set('hint', data, function (error) {
+        if (error) throw error;
+      });
+      ipc.send('majDesk');
+    }
+    ipc.send('majDesk');
+  });
+}
+opening();
 
 // Setting the width and height of the canvas
 canvas.width = window.innerWidth;

@@ -55,8 +55,8 @@
 
 
 .validated{
-  outline: 4px solid rgba(0,128,0,0.68);
-  outline-offset: -5px;
+  outline: 3px solid rgba(0,128,0,0.68);
+  outline-offset: -3px;
 
 }
 .clickable{
