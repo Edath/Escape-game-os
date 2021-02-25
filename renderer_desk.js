@@ -1,5 +1,4 @@
-const { remote } = require('electron');
-const { desktopCapturer } = require('electron/common');
+
 const ipc = require('electron').ipcRenderer;
 const storage = require('electron-json-storage');
 

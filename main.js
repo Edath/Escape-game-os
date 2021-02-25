@@ -5,6 +5,13 @@ const storage = require('electron-json-storage');
 
 const ipc = require('electron').ipcMain;
 
+storage.set('hint', { connection: false, encounter: false, trash: false, recuperation: false, note: false, password: false, backup: false, final: false, step: 0 }, function (error) {
+  if (error) throw error;
+});
+storage.set('os', { picture: 'disk', note: 'disk', pictures: 'crypted' }, function (error) {
+  if (error) throw error;
+});
+
 ipc.on('getData', function (event, arg) {
   if (arg === 'hint') {
     storage.get('hint', function (error, data) {
@@ -74,7 +81,7 @@ function createWindow () {
     }
   });
   win.maximize();
-  win.loadFile('src/mail.html');
+  win.loadFile('src/index.html');
 }
 
 app.whenReady().then(createWindow);
@@ -146,7 +153,6 @@ ipc.on('trash', (event, arg) => {
     });
     win.removeMenu();
     win.loadFile('src/trash.html');
-    win.webContents.openDevTools();
     win.setIcon('assets/images/corbeille.png');
   }
 });

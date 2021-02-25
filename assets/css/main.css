@@ -53,6 +53,11 @@
     background-size: cover;
 }
 
+.hint{
+  border-bottom: 5px solid #919998;
+  border-radius: 19px 10px 10px 19px; 
+  background-color: white; 
+}
 
 .validated{
   outline: 3px solid rgba(0,128,0,0.68);

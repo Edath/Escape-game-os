@@ -44,9 +44,7 @@
   },
   "config": {
     "forge": {
-      "packagerConfig": {
-        "asar": true
-      },
+      "packagerConfig": {},
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
