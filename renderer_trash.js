@@ -13,7 +13,6 @@ const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 function hinty () {
   storage.get('hint', function (error, data) {
     if (error) throw error;
-    console.log('ok');
     if (data.step === 1) {
       document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données.  </h4>';
     }

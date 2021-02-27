@@ -33,6 +33,9 @@ function maj () {
     if (data.step === 2) {
       document.getElementById('hint').innerHTML = '<h4>On se rapproche ! Pour son pseudo, ça ne doit pas être difficile, ce gars laisse des traces partout ! Ce type m’a l’air d’être du genre à poster des photos de son chat partout… J’irais d\'abord vérifier sur instagram. Vous connaissez son pseudo sur les réseaux, non ?  </h4>';
     }
+    if (data.step === 4) {
+
+    }
   });
 }
 maj();

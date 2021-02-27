@@ -1,5 +1,5 @@
-const { remote } = require('electron');
-const { desktopCapturer } = require('electron/common');
+// const { remote } = require('electron');
+// const { desktopCapturer } = require('electron/common');
 const ipc = require('electron').ipcRenderer;
 
 const fb = document.getElementById('fb');

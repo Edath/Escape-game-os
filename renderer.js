@@ -1,11 +1,11 @@
 
 const { remote } = require('electron');
-const { desktopCapturer } = require('electron/common');
+// const { desktopCapturer } = require('electron/common');
 const ipc = require('electron').ipcRenderer;
 
-const password_form = document.getElementById('first-password');
+const passwordForm = document.getElementById('first-password');
 
-password_form.addEventListener('submit', function () {
+passwordForm.addEventListener('submit', function () {
   ipc.send('enter-desktop', document.getElementById('password').value);
 });
 

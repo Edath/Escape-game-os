@@ -1,9 +1,12 @@
 
+const { remote } = require('electron');
 const ipc = require('electron').ipcRenderer;
 const storage = require('electron-json-storage');
 // Initialising the canvas
+
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
+const keyForm = document.getElementById('keyForm');
 
 function opening () {
   storage.get('hint', function (error, data) {
@@ -55,3 +58,39 @@ function draw () {
 
 // Loop the animation
 setInterval(draw, 33);
+
+keyForm.addEventListener('submit', async function (event) {
+  const element = document.getElementById('loading');
+  element.classList.add('loader');
+  event.preventDefault();
+  const regex = /^gru(.){0,1}minou(.){0,1}1234$/i;
+  if (regex.test(document.getElementById('key').value)) {
+    console.log('début');
+    await storage.get('os', async function (error, data) {
+      if (error) throw error;
+      data.pictures = 'decrypted';
+      await storage.set('os', data, function (error) {
+        if (error) throw error;
+      });
+    });
+    await storage.get('hint', async function (error, data) {
+      if (error) throw error;
+      if (data.step === 3) {
+        data.step = 4;
+        await storage.set('hint', data, function (error) {
+          if (error) throw error;
+        });
+      }
+    });
+  }
+
+  setTimeout(function () {
+    console.log('fin');
+    ipc.send('folder');
+    ipc.send('majDesk');
+    const win = remote.getCurrentWindow();
+    win.close();
+  }, 1500);
+
+  //
+});

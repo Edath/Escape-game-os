@@ -2,31 +2,43 @@
 <html style="height: 100%;">
 <head>
     <meta charset="UTF-8">
-    <title>Photos de vacances</title>
+    <title>Bulletins</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <script>window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.slim.min.js');</script>
     <link rel="stylesheet" href="../assets/css/main.css"/>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-    
+   
     <script src="../node_modules/popper.js/dist/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </head>
 
-<body  class="">
+<body  style="     width: 100%;
+margin: 0px;
+padding: 0px;
+overflow-x: hidden; ">
+    <nav class="navbar navbar-dark bg-dark navbar-expand no-pad">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
+          <li class="nav-item">
+            <div class ="contenant_button dossier" id="restaure" tabindex="0" role="button" data-bs-toggle="popover" data-trigger="focus" title="Hm" data-content="Je ne pense pas que ce soit nécessaire ici..."> 
+              <img src = "../assets/images/restaurer.png"  height= "80px" class="pb-2 img-responsive" style="padding:0 !important;"/>
+              <a class="nav-link pl-2 pt-0 pb-2 " href="#">Restaurer une sauvegarde</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
     <div style="min-height: 10%; height:10vh;"></div>
+    <div style="min-height: 40%; height:40vh;"></div>
     <div class="container-fluid align-self-end align-items-center">
         <div class="row justify-content-end ">
-            <div class="col-2"></div>
-            <div class=" col-8 justify-self-center text-center">
+            <div class="col-8 text-center">
                 <h4>Ceci est un exemple de message d'aide.</h4>
             </div>
 
-            <div class="col-2 ">
+            <div class="">
                 <!-- Button trigger modal -->
-                <button type="button" class="pixel" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class="pixel pl-0" data-toggle="modal" data-target="#exampleModalCenter">
                     <p>À l'aide</p>
                 </button>
                 
@@ -54,6 +66,6 @@
         </div>
     </div>
 
-    <script src="../renderer_desk.js"></script>
+    <!-- <script src="../renderer_desk.js"></script> -->
 </body>
 </html>

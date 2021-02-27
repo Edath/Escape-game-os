@@ -1,4 +1,4 @@
-const { remote } = require('electron');
+// const { remote } = require('electron');
 // const { desktopCapturer } = require('electron/common');
 // const ipc = require('electron').ipcRenderer;
 

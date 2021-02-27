@@ -1,6 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // import "node_modules/bootstrap/dist/css/bootstrap.css";
-const { app, BrowserWindow, remote } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const storage = require('electron-json-storage');
 
 const ipc = require('electron').ipcMain;
@@ -81,7 +81,7 @@ function createWindow () {
     }
   });
   win.maximize();
-  win.loadFile('src/index.html');
+  win.loadFile('src/mail.html');
 }
 
 app.whenReady().then(createWindow);
@@ -97,6 +97,7 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
 // ouvre le bureau
 ipc.on('enter-desktop', function (event, arg) {
   if (arg === '4862') {
@@ -129,9 +130,7 @@ ipc.on('enter-pc', function (event, arg) {
       enableRemoteModule: true
     }
   });
-
   win.maximize();
-
   win.loadFile('src/index.html');
 });
 
@@ -151,6 +150,7 @@ ipc.on('trash', (event, arg) => {
         enableRemoteModule: true
       }
     });
+    Menu.setApplicationMenu(null);
     win.removeMenu();
     win.loadFile('src/trash.html');
     win.setIcon('assets/images/corbeille.png');
@@ -172,6 +172,7 @@ ipc.on('navigator', (event, arg) => {
         enableRemoteModule: true
       }
     });
+    Menu.setApplicationMenu(null);
     win.loadFile('src/navigator.html');
     win.setIcon('assets/images/chrome.png');
   }
@@ -191,6 +192,7 @@ ipc.on('fb', (event, arg) => {
         enableRemoteModule: true
       }
     });
+    Menu.setApplicationMenu(null);
     win.loadFile('src/fb.html');
     win.setIcon('assets/images/chrome.png');
   }
@@ -210,6 +212,7 @@ ipc.on('insta', (event, arg) => {
         enableRemoteModule: true
       }
     });
+    Menu.setApplicationMenu(null);
     win.loadFile('src/insta.html');
     win.setIcon('assets/images/chrome.png');
   }
@@ -217,43 +220,41 @@ ipc.on('insta', (event, arg) => {
 
 // open folder of pictures
 ipc.on('folder', (event, arg) => {
-  const windows = BrowserWindow.getAllWindows();
-  if (windows.length === 1) {
-    storage.get('os', function (error, data) {
-      if (error) throw error;
-      console.log(data);
-      if (data.pictures === 'crypted') {
-        const win = new BrowserWindow({
-          width: 700,
-          height: 500,
-          frame: true,
-          parent: BrowserWindow.getAllWindows()[0],
-          modal: true,
-          webPreferences: {
-            nodeIntegration: true,
-            enableRemoteModule: true
-          }
-        });
-        win.loadFile('src/folder_crypt.html');
-        win.setIcon('assets/images/dossier.png');
-        win.setResizable(false);
-        console.log('1');
-      } else {
-        const win = new BrowserWindow({
-          width: 1400,
-          height: 1000,
-          frame: false,
-          parent: BrowserWindow.getAllWindows()[0],
-          modal: true,
-          webPreferences: {
-            nodeIntegration: true,
-            enableRemoteModule: true
-          }
-        });
-        win.loadFile('src/folder_decrypt.html');
-        win.setIcon('assets/images/dossier.png');
-        console.log('2');
-      }
-    });
-  }
+  storage.get('os', function (error, data) {
+    if (error) throw error;
+    if (data.pictures === 'crypted') {
+      const win = new BrowserWindow({
+        width: 700,
+        height: 500,
+        frame: true,
+        parent: BrowserWindow.getAllWindows()[0],
+        modal: true,
+        webPreferences: {
+          nodeIntegration: true,
+          enableRemoteModule: true
+        }
+      });
+      Menu.setApplicationMenu(null);
+
+      win.loadFile('src/folder_crypt.html');
+      win.setIcon('assets/images/dossier.png');
+      win.setResizable(false);
+    } else {
+      const win = new BrowserWindow({
+        width: 700,
+        height: 500,
+        frame: true,
+        parent: BrowserWindow.getAllWindows()[0],
+        modal: true,
+        webPreferences: {
+          nodeIntegration: true,
+          enableRemoteModule: true
+        }
+      });
+      Menu.setApplicationMenu(null);
+      win.loadFile('src/folder_decrypt.html');
+      win.setIcon('assets/images/dossier.png');
+      win.setResizable(false);
+    }
+  });
 });
