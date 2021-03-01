@@ -16,7 +16,7 @@
   padding: 0px;
   overflow-x: hidden; " >
 
-    <canvas id="confetti" style="position:absolute;" width="100%" height="100%"> </canvas>
+    <canvas id="confetti" style="position:absolute;" width="100%" height="100%" style="z-index:0; position:relative;"> </canvas>
     <div class=""style="min-height: 50%; height:50vh;"> </div>
     <div class= "row justify-content-center " style="min-height: 10%; height:10vh;">
         <h1  class="typewrite" data-period="1000" data-type='[ "On dirait bien que vous avez réussi à contourner mon attaque... <br> Félicitations."," Mais vous savez, je reviendrai.Vous feriez mieux de vous y préparer.", "Gru" ]'> 
@@ -24,9 +24,10 @@
             <span class="wrap font-monospace"></span>   
         </h1>
         <h1 id="bravo"></h1>
+        
     </div>
     <div class=""style="min-height: 40%; height:40vh;"> 
-
+    <button id = "btn" type="button" class="btn btn-secondary btn-lg btn-block " hidden style="z-index:9999; position:relative;">Terminer l'escape game</button>
     <script src="../renderer_finish.js"> </script>
   </body>
   </html>

@@ -1,3 +1,5 @@
+const { remote } = require('electron');
+
 const TxtType = function (el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
@@ -41,6 +43,7 @@ TxtType.prototype.tick = function () {
   } else {
     confetti();
     document.getElementById('bravo').innerHTML = 'Félicitations';
+    document.getElementById('btn').removeAttribute('hidden');
   }
 };
 
@@ -448,3 +451,10 @@ function confetti () {
     confetti.resize();
   });
 }
+
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', function () {
+  const win = remote.getCurrentWindow();
+  win.close();
+});

@@ -102,7 +102,7 @@ function createWindow () {
     }
   });
   win.maximize();
-  win.loadFile('src/finish.html');
+  win.loadFile('src/mail.html');
 }
 
 app.whenReady().then(createWindow);
