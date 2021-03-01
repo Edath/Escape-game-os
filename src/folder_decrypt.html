@@ -21,26 +21,31 @@ overflow-x: hidden; ">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
           <li class="nav-item">
-            <div class ="contenant_button dossier" id="restaure" tabindex="0" role="button" data-bs-toggle="popover" data-trigger="focus" title="Hm" data-content="Je ne pense pas que ce soit nécessaire ici..."> 
+            <div class ="contenant_button dossier" id="backup" tabindex="0" role="button" data-bs-toggle="popover" data-trigger="focus" title="Hm" data-content="Je ne pense pas que ce soit nécessaire ici..."> 
               <img src = "../assets/images/restaurer.png"  height= "80px" class="pb-2 img-responsive" style="padding:0 !important;"/>
               <a class="nav-link pl-2 pt-0 pb-2 " href="#">Restaurer une sauvegarde</a>
             </div>
           </li>
         </ul>
       </nav>
-    <div style="min-height: 10%; height:10vh;"></div>
+    <div style="min-height: 10%; height:10vh;">
+        <div class="contenant_icon" id="note" style="cursor: pointer;">
+        </div>
+    </div>
     <div style="min-height: 40%; height:40vh;"></div>
     <div class="container-fluid align-self-end align-items-center">
-        <div class="row justify-content-end ">
-            <div class="col-8 text-center">
-                <h4>Ceci est un exemple de message d'aide.</h4>
+        <div class="row justify-content-center ">
+            <div class="col-8 text-center hint" style="background-color:antiquewhite;">
+                <h5>Non...le dossier est vide...impossible! <br>
+                    Si seulement on avait fait une sauvegarde. Certains utilisent une "time machine".
+                </h5>
             </div>
 
             <div class="">
                 <!-- Button trigger modal -->
-                <button type="button" class="pixel pl-0" data-toggle="modal" data-target="#exampleModalCenter">
+                <!-- <button type="button" class="pixel pl-0" data-toggle="modal" data-target="#exampleModalCenter">
                     <p>À l'aide</p>
-                </button>
+                </button> -->
                 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -66,6 +71,6 @@ overflow-x: hidden; ">
         </div>
     </div>
 
-    <!-- <script src="../renderer_desk.js"></script> -->
+    <script src="../renderer_decrypt.js"></script>
 </body>
 </html>

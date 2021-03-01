@@ -63,7 +63,7 @@ keyForm.addEventListener('submit', async function (event) {
   const element = document.getElementById('loading');
   element.classList.add('loader');
   event.preventDefault();
-  const regex = /^gru(.){0,1}minou(.){0,1}1234$/i;
+  const regex = /^minou(.){0,1}1234$/i;
   if (regex.test(document.getElementById('key').value)) {
     console.log('début');
     await storage.get('os', async function (error, data) {

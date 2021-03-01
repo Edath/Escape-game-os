@@ -1,0 +1,58 @@
+
+body {
+
+	/* font-family: 'Viga', sans-serif; */
+	font-family: 'Courier New', monospace !important;
+	font-size: 3.6em;
+  margin-top: 10px;
+}
+
+
+* { 
+	color: black; 
+	text-decoration: none;
+}
+
+h1 {
+	margin-top: 0;
+	font-weight: 100;
+}
+
+@media handheld,
+only screen and (max-width: 767px) {
+	
+body {
+		font-size: 1.3em;
+	}
+	
+}
+
+#confetti{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+a.iprodev {
+  line-height: normal;
+  font-family: Varela Round, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
+  color: #A7AAAE;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  border: 1px solid #A7AAAE;
+  padding: 12px 20px 10px;
+  border-radius: 50px;
+  transition: all .1s ease-in-out;
+  text-transform: uppercase;
+}
+a.iprodev:hover {
+  background: #A7AAAE;
+  color: white;
+}

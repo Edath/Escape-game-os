@@ -8,8 +8,29 @@ const ipc = require('electron').ipcMain;
 storage.set('hint', { connection: false, encounter: false, trash: false, recuperation: false, note: false, password: false, backup: false, final: false, step: 0 }, function (error) {
   if (error) throw error;
 });
-storage.set('os', { picture: 'disk', note: 'disk', pictures: 'crypted' }, function (error) {
+storage.set('os', { picture: 'disk', note: 'disk', pictures: 'crypted', marks: false }, function (error) {
   if (error) throw error;
+});
+
+ipc.on('finish', function () {
+  const wins = BrowserWindow.getAllWindows();
+  for (let i = 0; i < wins.length; i++) {
+    wins[i].close();
+    const win = new BrowserWindow({
+      width: 800,
+      height: 600,
+      frame: true,
+      title: 'App',
+      webPreferences: {
+        nodeIntegration: true,
+        fullscreen: true,
+        closable: false,
+        enableRemoteModule: true
+      }
+    });
+    win.maximize();
+    win.loadFile('src/finish.html');
+  }
 });
 
 ipc.on('getData', function (event, arg) {
@@ -81,7 +102,7 @@ function createWindow () {
     }
   });
   win.maximize();
-  win.loadFile('src/mail.html');
+  win.loadFile('src/finish.html');
 }
 
 app.whenReady().then(createWindow);

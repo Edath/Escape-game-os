@@ -76,15 +76,14 @@ function maj () {
     }
 
     // remet les images si besoin
-    if (document.getElementById) {
-      if (data.picture === 'visible') {
-        const myvar = '<div class="" id="pic" style="">' +
+    if (data.picture === 'visible') {
+      const myvar = '<div class="" id="pic" style="">' +
                 '<img src = "../assets/images/picture.png" height="200px" class="" style="padding: 0;"/>' +
       '          <h1 class= "text_file" style="padding: 0;">image.png</h1>' +
       '</div>';
-        document.getElementById('picture').insertAdjacentHTML('beforeend', myvar);
-      }
+      document.getElementById('picture').insertAdjacentHTML('beforeend', myvar);
     }
+
     if (data.note === 'visible') {
       const myvar = '<div class="" id="not" style=""  type="button"  data-toggle="modal" data-target="#exampleModalCenter">' +
       '<img src = "../assets/images/document.png" height="200px" class="" style="padding: 0;"/>' +
