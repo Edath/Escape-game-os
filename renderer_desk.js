@@ -31,10 +31,13 @@ function maj () {
       document.getElementById('hint').innerHTML = '<h4>L’attaquant a sûrement placé des fichiers sur l’ordinateur pour faire son attaque. Je ne les vois pas… il les aurait mis dans la corbeille ?  </h4>';
     }
     if (data.step === 2) {
-      document.getElementById('hint').innerHTML = '<h4>On se rapproche ! Pour son pseudo, ça ne doit pas être difficile, ce gars laisse des traces partout ! Ce type m’a l’air d’être du genre à poster des photos de son chat partout… J’irais d\'abord vérifier sur instagram. Vous connaissez son pseudo sur les réseaux, non ?  </h4>';
+      document.getElementById('hint').innerHTML = '<h4>On se rapproche ! Ce type m’a l’air d’être du genre à poster des photos de son chat partout… J’irais d\'abord vérifier sur instagram. Vous connaissez son pseudo, non ? Pour César là... je vais chercher sur Google. </h4>';
+    }
+    if (data.step === 3) {
+      document.getElementById('hint').innerHTML = '<h4>Je crois avoir vu son vrai nom. Faudrait qu\'il fasse plus attention à son empreinte numérique. On peut sûrement en faire quelque chose? J\'ai trouvé quelque chose pour César. je vous explique après.   </h4>';
     }
     if (data.step === 4) {
-
+      document.getElementById('hint').innerHTML = '<h4>J\'espère que vous avez tout retenu. Pour le chiffrement de César, c\est un chiffrement basé sur un décalage. Par exemple, avec un décalage de 1, a = b et b = c. ça fonctionne peut être pareil avec les chiffres? </h4>';
     }
   });
 }

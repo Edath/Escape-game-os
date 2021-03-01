@@ -1,5 +1,6 @@
 // const { remote } = require('electron');
-
+const ipc = require('electron').ipcRenderer;
+const storage = require('electron-json-storage');
 const prof = document.getElementById('profile');
 
 prof.addEventListener('submit', function (event) {
@@ -10,6 +11,17 @@ prof.addEventListener('submit', function (event) {
     main.remove();
     const myvar = '<img src="../assets/images/insta.jpg">';
     document.getElementById('here').insertAdjacentHTML('beforeend', myvar);
+
+    storage.get('hint', function (error, data) {
+      if (error) throw error;
+      if (data.step === 2) {
+        data.step = 3;
+        storage.set('hint', data, function (error) {
+          if (error) throw error;
+        });
+        ipc.send('majDesk');
+      }
+    });
   }
 })
 ;
