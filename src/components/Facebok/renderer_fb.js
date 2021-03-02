@@ -10,7 +10,9 @@ prof.addEventListener('submit', function (event) {
   // prevent from reloading
   event.preventDefault();
   const cont = document.getElementById('content').value;
-  if (cont === 'John Lundy') {
+  const regex = /^John(.){0,1}Lundy$/i;
+
+  if (regex.test(cont)) {
     const main = document.getElementById('main');
     main.remove();
     const myvar = '<img src="../assets/images/fb profile.png">';

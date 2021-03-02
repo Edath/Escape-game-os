@@ -37,7 +37,7 @@ function maj () {
       document.getElementById('hint').innerHTML = '<h4>Je crois avoir vu son vrai nom. Faudrait qu\'il fasse plus attention à son empreinte numérique. On peut sûrement en faire quelque chose? J\'ai trouvé quelque chose pour César. Je vous explique après. <a class="blink">|</a>  </h4>';
     }
     if (data.step === 4) {
-      document.getElementById('hint').innerHTML = '<h4>J\'espère que vous avez tout retenu. Pour le chiffrement de César, c\'est un chiffrement basé sur un décalage. Par exemple, avec un décalage de 1, a = b et b = c. ça fonctionne peut être pareil avec les chiffres?<a class="blink">|</a> </h4>';
+      document.getElementById('hint').innerHTML = '<h4>J\'espère que vous avez tout retenu. Pour le chiffrement de César, c\'est un chiffrement basé sur un décalage. Par exemple, avec un décalage de 1, a = b et b = c. Pour les chiffres, 1 = 2 dans ce cas. <a class="blink">|</a> </h4>';
     }
   });
 }
