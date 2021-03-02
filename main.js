@@ -29,7 +29,7 @@ ipc.on('finish', function () {
       }
     });
     win.maximize();
-    win.loadFile('src/finish.html');
+    win.loadFile('src/components/End/finish.html');
   }
 });
 
@@ -102,7 +102,7 @@ function createWindow () {
     }
   });
   win.maximize();
-  win.loadFile('src/mail.html');
+  win.loadFile('src/components/Mail/mail.html');
 }
 
 app.whenReady().then(createWindow);
@@ -134,7 +134,7 @@ ipc.on('enter-desktop', function (event, arg) {
     });
 
     win.maximize();
-    win.loadFile('src/desktop.html');
+    win.loadFile('src/components/Desktop/desktop.html');
   } else {
     event.sender.send('ko', arg);
   }
@@ -154,7 +154,7 @@ ipc.on('enter-pc', function (event, arg) {
     }
   });
   win.maximize();
-  win.loadFile('src/index.html');
+  win.loadFile('src/components/index.html');
 });
 
 // ouvre la corbeille
@@ -175,7 +175,7 @@ ipc.on('trash', (event, arg) => {
     });
     Menu.setApplicationMenu(null);
     win.removeMenu();
-    win.loadFile('src/trash.html');
+    win.loadFile('src/components/Trash/trash.html');
     win.setIcon('assets/images/corbeille.png');
   }
 });
@@ -196,7 +196,7 @@ ipc.on('navigator', (event, arg) => {
       }
     });
     Menu.setApplicationMenu(null);
-    win.loadFile('src/navigator.html');
+    win.loadFile('src/components/Navigator/navigator.html');
     win.setIcon('assets/images/chrome.png');
   }
 });
@@ -216,7 +216,7 @@ ipc.on('fb', (event, arg) => {
       }
     });
     Menu.setApplicationMenu(null);
-    win.loadFile('src/fb.html');
+    win.loadFile('src/components/Facebok/fb.html');
     win.setIcon('assets/images/chrome.png');
   }
 });
@@ -236,7 +236,7 @@ ipc.on('insta', (event, arg) => {
       }
     });
     Menu.setApplicationMenu(null);
-    win.loadFile('src/insta.html');
+    win.loadFile('src/components/InstaGram/insta.html');
     win.setIcon('assets/images/chrome.png');
   }
 });
@@ -259,7 +259,7 @@ ipc.on('folder', (event, arg) => {
       });
       Menu.setApplicationMenu(null);
 
-      win.loadFile('src/folder_crypt.html');
+      win.loadFile('src/components/Folder/folder_crypt.html');
       win.setIcon('assets/images/dossier.png');
       win.setResizable(false);
     } else {
@@ -275,7 +275,7 @@ ipc.on('folder', (event, arg) => {
         }
       });
       Menu.setApplicationMenu(null);
-      win.loadFile('src/folder_decrypt.html');
+      win.loadFile('src/components/Folder/folder_decrypt.html');
       win.setIcon('assets/images/dossier.png');
       win.setResizable(false);
     }
