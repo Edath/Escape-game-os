@@ -26,7 +26,7 @@ mail.addEventListener('click', function () {
     const object = document.getElementById('object');
     const money = document.getElementById('money');
     if (object.classList.contains('validated') && money.classList.contains('validated')) {
-      const myvar = '<button class="btn btn-dark hidden" id="suite" type="button" style="width:100%;">Commencer l\'escape game</button>';
+      const myvar = '<button class="btn btn-dark btn-lg " id="suite" type="button" style="width:100%;">Commencer l\'escape game</button>';
       document.getElementById('butt').insertAdjacentHTML('beforeend', myvar);
     }
   }
@@ -39,7 +39,7 @@ object.addEventListener('click', function () {
     const mail = document.getElementById('mail');
     const money = document.getElementById('money');
     if (mail.classList.contains('validated') && money.classList.contains('validated')) {
-      const myvar = '<button class="btn btn-dark hidden" id="suite" type="button" style="width:100%;">Commencer l\'escape game</button>';
+      const myvar = '<button class="btn btn-dark btn-lg " id="suite" type="button" style="width:100%;">Commencer l\'escape game</button>';
       document.getElementById('butt').insertAdjacentHTML('beforeend', myvar);
     }
   }
@@ -52,7 +52,7 @@ money.addEventListener('click', function () {
     const mail = document.getElementById('mail');
     const object = document.getElementById('object');
     if (mail.classList.contains('validated') && object.classList.contains('validated')) {
-      const myvar = '<button class="btn btn-dark hidden" id="suite" type="button" style="width:100%;">Commencer l\'escape game</button>';
+      const myvar = '<button class="btn btn-dark btn-lg " id="suite" type="button" style="width:100%;">Commencer l\'escape game</button>';
       document.getElementById('butt').insertAdjacentHTML('beforeend', myvar);
     }
   }
