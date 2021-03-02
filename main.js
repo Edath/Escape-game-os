@@ -16,20 +16,23 @@ ipc.on('finish', function () {
   const wins = BrowserWindow.getAllWindows();
   for (let i = 0; i < wins.length; i++) {
     wins[i].close();
-    const win = new BrowserWindow({
-      width: 800,
-      height: 600,
-      frame: true,
-      title: 'App',
-      webPreferences: {
-        nodeIntegration: true,
-        fullscreen: true,
-        closable: false,
-        enableRemoteModule: true
-      }
-    });
-    win.maximize();
-    win.loadFile('src/components/End/finish.html');
+    const zero = BrowserWindow.getAllWindows();
+    if (zero.length ===0){}
+      const win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        frame: true,
+        title: 'App',
+        webPreferences: {
+          nodeIntegration: true,
+          fullscreen: true,
+          closable: false,
+          enableRemoteModule: true
+        }
+      });
+      win.maximize();
+      win.loadFile('src/components/End/finish.html');
+    }
   }
 });
 
@@ -154,7 +157,7 @@ ipc.on('enter-pc', function (event, arg) {
     }
   });
   win.maximize();
-  win.loadFile('src/components/index.html');
+  win.loadFile('src/components/Locker/index.html');
 });
 
 // ouvre la corbeille

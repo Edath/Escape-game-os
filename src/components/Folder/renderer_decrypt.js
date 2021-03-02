@@ -12,7 +12,7 @@ backup.addEventListener('click', function () {
     if (error) throw error;
     if (data.marks === false) {
       const myvar = '<div class="" id="pic" style="">' +
-                    '<img src = "../assets/images/picture.png" height="150px" class="" style="padding: 0;"/>' +
+                    '<img src = "../../../assets/images/picture.png" height="150px" class="" style="padding: 0;"/>' +
             '          <h1 class= "text_file" style="padding: 0;">bulletins.xls</h1>' +
             '</div>';
       document.getElementById('note').insertAdjacentHTML('beforeend', myvar);
@@ -29,7 +29,7 @@ function maj () {
     if (error) throw error;
     if (data.marks === true) {
       const myvar = '<div class="" id="pic" style="">' +
-            '<img src = "../assets/images/picture.png" height="150px" class="" style="padding: 0;"/>' +
+            '<img src = "../../../assets/images/picture.png" height="150px" class="" style="padding: 0;"/>' +
     '          <h1 class= "text_file" style="padding: 0;">bulletins.xls</h1>' +
     '</div>';
       document.getElementById('note').insertAdjacentHTML('beforeend', myvar);

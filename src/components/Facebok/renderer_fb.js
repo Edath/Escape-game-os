@@ -15,7 +15,7 @@ prof.addEventListener('submit', function (event) {
   if (regex.test(cont)) {
     const main = document.getElementById('main');
     main.remove();
-    const myvar = '<img src="../assets/images/fb profile.png">';
+    const myvar = '<img src="../../../assets/images/fb profile.png">';
     document.getElementById('here').insertAdjacentHTML('beforeend', myvar);
     storage.get('hint', function (error, data) {
       if (error) throw error;
