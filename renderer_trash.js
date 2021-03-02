@@ -14,7 +14,7 @@ function hinty () {
   storage.get('hint', function (error, data) {
     if (error) throw error;
     if (data.step === 1) {
-      document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données.  </h4>';
+      document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données. <a class="blink">|</a> </h4>';
     }
   });
 }
@@ -67,7 +67,7 @@ function maj () {
   storage.get('os', function (error, data) {
     if (error) throw error;
     // s'occupe de retirer les images avant d'en remettre
-    document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données.  </h4>';
+    document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données. <a class="blink">|</a> </h4>';
     if (document.getElementById('pic') != null) {
       document.getElementById('picture').removeChild(document.getElementById('pic'));
     }
@@ -89,7 +89,7 @@ function maj () {
       '<img src = "../assets/images/document.png" height="200px" class="" style="padding: 0;"/>' +
       '          <h1 class= "text_file" style="padding: 0;">Note.txt</h1>' +
       '</div>';
-      document.getElementById('hint').innerHTML = '<h4>C\'est sûrement l\'attaquant qui a laissé ça ici! </h4>';
+      document.getElementById('hint').innerHTML = '<h4>C\'est sûrement l\'attaquant qui a laissé ça ici! <a class="blink">|</a> </h4>';
       document.getElementById('note').insertAdjacentHTML('beforeend', myvar);
     }
   });

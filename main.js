@@ -135,6 +135,8 @@ ipc.on('enter-desktop', function (event, arg) {
 
     win.maximize();
     win.loadFile('src/desktop.html');
+  } else {
+    event.sender.send('ko', arg);
   }
 });
 // open locker page

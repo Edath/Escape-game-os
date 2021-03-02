@@ -15,10 +15,10 @@
 </head>
 
 <body style="background: rgb(179, 187, 195);min-height: 100%;" class="">
-    <div class="container d-flex justify-content-center" style="min-height: 90%; height:90vh;">
+    <div class="container d-flex justify-content-center" style="min-height: 85%; height:85vh;">
         <div class="row align-self-center bottom-line"> 
             <form id="first-password" class="align-self-center pb-2">
-                <input id = "password" type="password" class="password-font " placeholder="&#9679;&#9679;&#9679;&#9679;" maxlength="4">
+                <input id = "password" type="password" onchange="removeError()" class="password-font " placeholder="&#9679;&#9679;&#9679;&#9679;" maxlength="4">
                 <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" />
             </form>
             <img src = "../assets/images/cadenas.png" height= "200px" class="pb-2"/>
@@ -27,8 +27,9 @@
     <div class="container-fluid align-self-end align-items-center">
         <div class="row justify-content-end ">
             <div class="col-2"></div>
-            <div class=" col-8 justify-self-center text-center pt-2 mb-2 hint" style="">
-                <h4>Saviez-vous que 30% des gens oublient leur mot de passe plusieurs fois par an? Pour y remédier on peut utiliser des mots de passe simples, <b>ou d'autres choses.</b></h4>
+            <div class=" col-8 justify-self-center text-center pt-2 mb-2 hint" style="" >
+                <h4>Bonjour! Je suis votre assistant personnel. Je vais vous accompagner durant toute votre aventure !  <br> 
+                    Saviez-vous que 30% des gens oublient leur mot de passe plusieurs fois par an? Pour y remédier on peut utiliser des mots de passe simples, <b>ou d'autres choses.</b><a class="blink">|</a></h4>
             </div>
 
             <div class="col-2 ">
@@ -64,5 +65,6 @@
 
     <!-- Bootstrap core JavaScript -->
     <script src="../renderer.js"></script>
+
 </body>
 </html>

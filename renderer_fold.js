@@ -63,7 +63,7 @@ keyForm.addEventListener('submit', async function (event) {
   const element = document.getElementById('loading');
   element.classList.add('loader');
   event.preventDefault();
-  const regex = /^okpqw(.){0,1}1234$/i;
+  const regex = /^okpqw(.){0,1}3456$/i;
   if (regex.test(document.getElementById('key').value)) {
     console.log('début');
     await storage.get('os', async function (error, data) {
@@ -90,7 +90,7 @@ keyForm.addEventListener('submit', async function (event) {
     ipc.send('majDesk');
     const win = remote.getCurrentWindow();
     win.close();
-  }, 1500);
+  }, 2000);
 
   //
 });

@@ -25,5 +25,11 @@ prof.addEventListener('submit', function (event) {
         ipc.send('majDesk');
       }
     });
+  } else {
+    const input = document.getElementById('content');
+    input.classList.add('error');
+    input.value = '';
   }
 });
+
+const removeError = function () { document.getElementById('password').classList.remove('error'); };
