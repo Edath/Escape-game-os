@@ -32,6 +32,7 @@ prof.addEventListener('submit', function (event) {
     input.classList.add('error');
     input.value = '';
   }
+  ipc.send('majDesk');
 });
 
 const removeError = function () { document.getElementById('password').classList.remove('error'); };

@@ -8,6 +8,10 @@ mark.addEventListener('click', function () {
 });
 
 backup.addEventListener('click', function () {
+  ipc.send('pendu');
+});
+
+ipc.on('ok', function () {
   storage.get('os', function (error, data) {
     if (error) throw error;
     if (data.marks === false) {

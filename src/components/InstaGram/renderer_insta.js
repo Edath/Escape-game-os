@@ -21,6 +21,7 @@ prof.addEventListener('submit', function (event) {
         });
         ipc.send('majDesk');
       }
+      ipc.send('majDesk');
     });
   } else {
     const input = document.getElementById('content');

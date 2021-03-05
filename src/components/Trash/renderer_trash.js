@@ -13,13 +13,25 @@ const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 function hinty () {
   storage.get('hint', function (error, data) {
     if (error) throw error;
-    if (data.step === 1) {
-      document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données. <a class="blink">|</a> </h4>';
+    if (data.step >= 1) {
+      storage.get('os', function (error, data) {
+        if (error) throw error;
+        if (data.picture === 'visible') {
+          document.getElementById('hint').innerHTML = '<h4> Qu\'est-ce que c\'est que ça?  <a class="blink"><img src="../../../assets/images/wtf.png" height="25px"></a> </h4>';
+        }
+        if (data.picture === 'destroy' && data.note === 'visible') {
+          document.getElementById('hint').innerHTML = '<h4> Ouf! C\'est mieux! Continuons.  <a class="blink"><img src="../../../assets/images/wtf.png" height="25px"></a> </h4>';
+        }
+        if (data.note === 'invisible') {
+          document.getElementById('hint').innerHTML = '<h4>Rien de visible. Mais supprimer un fichier n\'efface pas forcément les données… Une récupération, ça vous dit? <a class="blink"><img src="../../../assets/images/glass.png" height="25px"></a></h4>';
+        }
+      });
     }
   });
 }
 
 hinty();
+
 note.addEventListener('click', function () {
   storage.get('hint', function (error, data) {
     if (error) throw error;
@@ -29,6 +41,7 @@ note.addEventListener('click', function () {
         if (error) throw error;
       });
       ipc.send('majDesk');
+      maj();
     }
   });
 });
@@ -60,14 +73,11 @@ empty.addEventListener('click', function () {
   });
 });
 
-ipc.on('data', function (event, arg) {
-});
-
 function maj () {
   storage.get('os', function (error, data) {
     if (error) throw error;
     // s'occupe de retirer les images avant d'en remettre
-    document.getElementById('hint').innerHTML = '<h4>Ça ne m’étonne pas, c’est un pro. Pas de problème, vider la corbeille ne supprime pas forcément les données… Nous devrions faire une récupération des données. <a class="blink">|</a> </h4>';
+
     if (document.getElementById('pic') != null) {
       document.getElementById('picture').removeChild(document.getElementById('pic'));
     }
@@ -89,9 +99,9 @@ function maj () {
       '<img src = "../../../assets/images/document.png" height="200px" class="" style="padding: 0;"/>' +
       '          <h1 class= "text_file" style="padding: 0;">Note.txt</h1>' +
       '</div>';
-      document.getElementById('hint').innerHTML = '<h4>C\'est sûrement l\'attaquant qui a laissé ça ici! <a class="blink">|</a> </h4>';
       document.getElementById('note').insertAdjacentHTML('beforeend', myvar);
     }
+    hinty();
   });
 }
 maj();

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script>window.$ = window.jQuery = require('../../../node_modules/jquery/dist/jquery.slim.min.js');</script>
+    <!-- <link rel="stylesheet" href="../../../assets/css/main.css"/> -->
+    <link rel="stylesheet" href="../../../assets/css/hangman.css"/>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div style="min-height: 5%; height:5vh;"> </div>
+    <div class="container d-flex justify-content-center" id="gameField">
+        <div class="">
+            <div class="card col-12">
+                <div class="card-body">
+                    <div class="container d-flex text-center" style="">
+                        <p class= "">Le directeur est en train de chercher sa sauvegarde...s'il en a bel et bien fait une. <br>
+                            <img src="../../../assets/images/giphy.gif" height="200px">
+                    </div>
+                    <div class="container d-flex " style=""> 
+                        <h5>A  </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-12 mt-2">
+                <div class="card-body">
+                    <div class="container d-flex " style="">
+                        <p class= "">Essaie les lettres en les tapant au clavier.
+                    </div>
+                    <div class="container d-flex " style="" id="lifeCount">
+                        7 tentatives restantes
+                    </div>
+                    <div class = "container" id="messageField">
+
+                    </div>
+                    <div class="gameFooter">
+                        <div class="btnWrap ">
+                            <button id="startBtn" class="btn" autofocus>START GAME</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="container d-flex justify-content-center" id="instructionsField">
+        <footer class="mb-5">
+            <div id="wrongGuesses">Lettres incorrectes:</div>
+        </footer>
+    </div>
+    <script src="guess.js"></script>
+
+</body>
+</html>

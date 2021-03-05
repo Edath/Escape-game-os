@@ -63,9 +63,8 @@ keyForm.addEventListener('submit', async function (event) {
   const element = document.getElementById('loading');
   element.classList.add('loader');
   event.preventDefault();
-  const regex = /^okpqw(.){0,1}3456$/i;
+  const regex = /^njopv(.){0,1}23456$/i;
   if (regex.test(document.getElementById('key').value)) {
-    console.log('début');
     await storage.get('os', async function (error, data) {
       if (error) throw error;
       data.pictures = 'decrypted';
@@ -75,8 +74,8 @@ keyForm.addEventListener('submit', async function (event) {
     });
     await storage.get('hint', async function (error, data) {
       if (error) throw error;
-      if (data.step === 3) {
-        data.step = 4;
+      if (data.step === 4) {
+        data.step = 5;
         await storage.set('hint', data, function (error) {
           if (error) throw error;
         });
