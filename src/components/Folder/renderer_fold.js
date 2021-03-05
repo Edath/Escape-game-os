@@ -55,7 +55,6 @@ function draw () {
     }
   }
 }
-
 // Loop the animation
 setInterval(draw, 33);
 
@@ -74,12 +73,10 @@ keyForm.addEventListener('submit', async function (event) {
     });
     await storage.get('hint', async function (error, data) {
       if (error) throw error;
-      if (data.step === 4) {
-        data.step = 5;
-        await storage.set('hint', data, function (error) {
-          if (error) throw error;
-        });
-      }
+      data.step = 5;
+      await storage.set('hint', data, function (error) {
+        if (error) throw error;
+      });
     });
   }
 

@@ -4,14 +4,11 @@ const backup = document.getElementById('backup');
 const mark = document.getElementById('note');
 
 mark.addEventListener('click', function () {
-  ipc.send('finish');
+  ipc.send('terminal');
 });
 
 backup.addEventListener('click', function () {
   ipc.send('pendu');
-});
-
-ipc.on('ok', function () {
   storage.get('os', function (error, data) {
     if (error) throw error;
     if (data.marks === false) {

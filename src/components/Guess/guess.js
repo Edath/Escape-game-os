@@ -1,3 +1,4 @@
+const { remote } = require('electron');
 const riddles = [
   // Riddle 1
   {
@@ -118,6 +119,7 @@ function gameStart () {
             }
             // If score matches the length of the answer, the player wins.
             if (score === randAnswer.length) {
+              document.getElementById('suite').removeAttribute('hidden');
               wrongGuess.length = 0;
               wrongLetters.innerHTML = '';
               riddleWrap.innerHTML = '<p>Oui! Vous avez trouvé!</p></br>';
@@ -145,4 +147,9 @@ function gameStart () {
       }
     }
   };
+}
+
+function clos () {
+  const win = remote.getCurrentWindow();
+  close(win);
 }
