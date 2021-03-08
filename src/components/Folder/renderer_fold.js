@@ -59,11 +59,13 @@ function draw () {
 setInterval(draw, 33);
 
 keyForm.addEventListener('submit', async function (event) {
+  event.preventDefault();
   const element = document.getElementById('loading');
   element.classList.add('loader');
-  event.preventDefault();
+
   const regex = /^njopv(.){0,1}23456$/i;
   if (regex.test(document.getElementById('key').value)) {
+    document.getElementById('msg').innerHTML = 'Mot de passe correct';
     await storage.get('os', async function (error, data) {
       if (error) throw error;
       data.pictures = 'decrypted';
@@ -78,6 +80,8 @@ keyForm.addEventListener('submit', async function (event) {
         if (error) throw error;
       });
     });
+  } else {
+    document.getElementById('msg').innerHTML = 'Nombre d\'erreurs: ' + levenshtein(document.getElementById('key').value, 'njopv23456');
   }
 
   setTimeout(function () {
@@ -90,3 +94,42 @@ keyForm.addEventListener('submit', async function (event) {
 
   //
 });
+
+const levenshtein = function (a, b) {
+  if (a.length == 0) return b.length;
+  if (b.length == 0) return a.length;
+
+  // swap to save some memory O(min(a,b)) instead of O(a)
+  if (a.length > b.length) {
+    const tmp = a;
+    a = b;
+    b = tmp;
+  }
+
+  const row = [];
+  // init the row
+  for (let i = 0; i <= a.length; i++) {
+    row[i] = i;
+  }
+
+  // fill in the rest
+  for (let i = 1; i <= b.length; i++) {
+    let prev = i;
+    for (let j = 1; j <= a.length; j++) {
+      var val;
+      if (b.charAt(i - 1) == a.charAt(j - 1)) {
+        val = row[j - 1]; // match
+      } else {
+        val = Math.min(row[j - 1] + 1, // substitution
+          prev + 1, // insertion
+          row[j] + 1); // deletion
+      }
+      row[j - 1] = prev;
+      prev = val;
+    }
+    row[a.length] = prev;
+  }
+
+  return row[a.length];
+}
+;

@@ -16,13 +16,10 @@ function hinty () {
     if (data.step >= 1) {
       storage.get('os', function (error, data) {
         if (error) throw error;
-        if (data.picture === 'visible') {
-          document.getElementById('hint').innerHTML = '<h4> Qu\'est-ce que c\'est que ça?  <a class="blink"><img src="../../../assets/images/wtf.png" height="25px"></a> </h4>';
+        if (data.note === 'visible') {
+          document.getElementById('hint').innerHTML = '<h4> Là! Regardez!  <a class="blink"><img src="../../../assets/images/wtf.png" height="25px"></a> </h4>';
         }
-        if (data.picture === 'destroy' && data.note === 'visible') {
-          document.getElementById('hint').innerHTML = '<h4> Ouf! C\'est mieux! Continuons.  <a class="blink"><img src="../../../assets/images/wtf.png" height="25px"></a> </h4>';
-        }
-        if (data.note === 'invisible') {
+        if (data.note === 'disk') {
           document.getElementById('hint').innerHTML = '<h4>Rien de visible. Mais supprimer un fichier n\'efface pas forcément les données… Une récupération, ça vous dit? <a class="blink"><img src="../../../assets/images/glass.png" height="25px"></a></h4>';
         }
       });
@@ -78,21 +75,11 @@ function maj () {
     if (error) throw error;
     // s'occupe de retirer les images avant d'en remettre
 
-    if (document.getElementById('pic') != null) {
-      document.getElementById('picture').removeChild(document.getElementById('pic'));
-    }
     if (document.getElementById('not') != null) {
       document.getElementById('note').removeChild(document.getElementById('not'));
     }
 
     // remet les images si besoin
-    if (data.picture === 'visible') {
-      const myvar = '<div class="" id="pic" style="">' +
-                '<img src = "../../../assets/images/picture.png" height="200px" class="" style="padding: 0;"/>' +
-      '          <h1 class= "text_file" style="padding: 0;">image.png</h1>' +
-      '</div>';
-      document.getElementById('picture').insertAdjacentHTML('beforeend', myvar);
-    }
 
     if (data.note === 'visible') {
       const myvar = '<div class="" id="not" style=""  type="button"  data-toggle="modal" data-target="#exampleModalCenter">' +

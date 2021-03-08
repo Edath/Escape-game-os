@@ -42,7 +42,7 @@ TxtType.prototype.tick = function () {
     }, delta);
   } else {
     confetti();
-    document.getElementById('bravo').innerHTML = 'Félicitations';
+    document.getElementById('bravo').innerHTML = 'Cet escape game est terminé!';
     document.getElementById('btn').removeAttribute('hidden');
   }
 };

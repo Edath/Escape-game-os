@@ -20,12 +20,57 @@
         <div class="noise"></div>
         <div class="overlay"></div>
         <div class="terminal">
-        <h1>Error <span class="errorcode">404</span></h1>
-        <p class="output">The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
-        <p class="output">Please try to <a href="#1">go back</a> or <a href="#2">return to the homepage</a>.</p>
-        <p class="output">Good luck.</p>
-        </div>
+            <div style="min-height: 40%; height:40vh;">
+                <h1>Attention : le fichier cliqué contenait un virus. </h1>
+                <h1>Ordinateur infecté dans <span id="time">02:00</span></h1>
+                <h1> Veuillez effectuer les manoeuvres d'urgence en tapant les commandes suivantes :</h1>
+                <p class="output">Changez tous les mots de passe enregistrés [change mdp]<b id='1' class='output' hidden> ✓</b></p>
+                <p class="output">Effectuez un backup [backup]<b id='2' class='output' hidden> ✓</b></p>
+                <p class="output">Analysez tous les fichiers de l'ordinateur [analyse complete]<b id='3' class='output' hidden> ✓</b></p>
+                <p class="output" hidden id="exit">Terminer la manoeuvre d'urgence [exit]</p>
+            </div>
 
+            <div class="container d-flex justify-content-center" style="min-height: 20%; height:20vh;"></div>
+            <div>
+                <div class=" row" id="response" style="min-height: 5%; height:5vh;"></div>
+                <div id="change" class=""  style="min-height: 15%; height:15vh;">
+                    <form id="mdp" hidden>
+                        <div class="row">
+                            <h4 id="msg">Veuillez choisir de nouveaux mots de passe</h4>
+                        </div>
+                        <div class="row">
+                            <b class="output col-2">Facebook</b> 
+                            <input id="mdp1" type="text" class="mb-2 output darkInput ml-2" style="width:500px !important;">
+                        </div>
+
+                        <div class="row">
+                            <b class="output col-2">Instagram</b>
+                            <input id="mdp2" type="text" class="mb-2 output darkInput ml-2" style="width:500px !important;">
+                        </div>
+                    
+                        <div class="row">
+                            <b class="output col-2">Ordinateur</b>
+                            <input id="mdp3" type="text" class="mb-2 output darkInput ml-2" style="width:500px !important;">
+                        </div>
+
+                        <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" />
+                    </form>
+                    <div id="viru" hidden>Fichier infecté mis en quarantaine.</div>
+                    <div class="loading-pulse" id="loader" hidden><br>       Veuillez patienter</div>
+                    <div class="row" id="nonunderstood" hidden>
+                        <div class="" > <h3> La commande <c id='coucou'></c> n'existe pas</h3></div>
+                    </div>
+                    
+                </div>
+                <form id="commandf" class=" align-self-center pb-2">
+                    <div class="row">
+                        <b class="output"></b>
+                        <input id = "command"  onchange="" class="darkInput output ml-2" >
+                        <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" />
+                    </div>
+                </form>
+            </div>
+        </div>
     <script src="terminal.js"> </script>
   </body>
   </html>

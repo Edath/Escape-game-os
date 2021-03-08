@@ -77,7 +77,7 @@ body {
   box-sizing: inherit;
   position: absolute;
   height: 100%;
-  width: 1000px;
+  width: 1500px;
   max-width: 100%;
   padding: 4rem;
   text-transform: uppercase;
@@ -122,4 +122,43 @@ a::after {
 
 .errorcode {
   color: white;
+}
+
+.darkInput {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  outline: none; width:1000px;
+}
+
+@keyframes pulse {	
+  50% { 
+    background: rgb(255,255,255);
+  } 
+}
+
+.loading-pulse {
+  position: relative;
+  width: 6px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: pulse 750ms infinite;
+  animation-delay: 250ms;
+}
+.loading-pulse:before, .loading-pulse:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 16px;
+  width: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pulse 750ms infinite;
+}
+.loading-pulse:before {
+  left: -12px;
+}
+.loading-pulse:after {
+  left: 12px;
+  animation-delay: 500ms;
 }

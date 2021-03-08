@@ -12,15 +12,11 @@ storage.set('os', { picture: 'disk', note: 'disk', pictures: 'crypted', marks: f
   if (error) throw error;
 });
 
-ipc.on('finish', function () {
-  const wins = BrowserWindow.getAllWindows();
-  for (let i = 0; i < wins.length; i++) {
-    wins[i].close();
-  }
+ipc.on('finish', function (event, arg) {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    frame: true,
+    frame: false,
     title: 'App',
     webPreferences: {
       nodeIntegration: true,
@@ -30,29 +26,48 @@ ipc.on('finish', function () {
     }
   });
   win.maximize();
+
   win.loadFile('src/components/End/finish.html');
+});
+
+ipc.on('failed', function (event, arg) {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    frame: false,
+    title: 'App',
+    webPreferences: {
+      nodeIntegration: true,
+      fullscreen: true,
+      closable: false,
+      enableRemoteModule: true
+    }
+  });
+  win.maximize();
+
+  win.loadFile('src/components/End/failed.html');
 });
 
 ipc.on('terminal', function () {
   const wins = BrowserWindow.getAllWindows();
   for (let i = 0; i < wins.length; i++) {
     wins[i].close();
+    const win = new BrowserWindow({
+      width: 800,
+      height: 600,
+      frame: true,
+      title: 'App',
+      webPreferences: {
+        nodeIntegration: true,
+        fullscreen: true,
+        closable: false,
+        enableRemoteModule: true
+      }
+    });
+    win.maximize();
+    win.loadFile('src/components/Terminal/terminal.html');
   }
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    frame: true,
-    title: 'App',
-    webPreferences: {
-      nodeIntegration: true,
-      fullscreen: true,
-      closable: false,
-      enableRemoteModule: true
-    }
-  });
-  win.webContents.openDevTools();
-  win.maximize();
-  win.loadFile('src/components/Terminal/terminal.html');
+  BrowserWindow.getAllWindows()[0].close();
 });
 
 ipc.on('getData', function (event, arg) {
@@ -123,7 +138,6 @@ ipc.on('pendu', function (event) {
     }
   });
   win.maximize();
-  win.webContents.openDevTools();
   win.loadFile('src/components/Guess/guess.html');
 });
 
@@ -147,11 +161,11 @@ function createWindow () {
 
 app.whenReady().then(createWindow);
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
+// app.on('window-all-closed', () => {
+//   if (process.platform !== 'darwin') {
+//     app.quit();
+//   }
+// });
 
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
@@ -162,7 +176,6 @@ app.on('activate', () => {
 // ouvre le bureau
 ipc.on('enter-desktop', function (event, arg) {
   if (arg === '4862') {
-    event.sender.send('ok', arg);
     const win = new BrowserWindow({
       width: 800,
       height: 600,
@@ -175,6 +188,7 @@ ipc.on('enter-desktop', function (event, arg) {
 
     win.maximize();
     win.loadFile('src/components/Desktop/desktop.html');
+    event.sender.send('ok', arg);
   } else {
     event.sender.send('ko', arg);
   }
@@ -217,7 +231,6 @@ ipc.on('trash', (event, arg) => {
     Menu.setApplicationMenu(null);
     win.removeMenu();
     win.loadFile('src/components/Trash/trash.html');
-    win.setIcon('assets/images/corbeille.png');
   }
 });
 
@@ -238,7 +251,6 @@ ipc.on('navigator', (event, arg) => {
     });
     Menu.setApplicationMenu(null);
     win.loadFile('src/components/Navigator/navigator.html');
-    win.setIcon('assets/images/chrome.png');
   }
 });
 
@@ -258,7 +270,6 @@ ipc.on('fb', (event, arg) => {
     });
     Menu.setApplicationMenu(null);
     win.loadFile('src/components/Facebok/fb.html');
-    win.setIcon('assets/images/chrome.png');
   }
 });
 
@@ -278,7 +289,6 @@ ipc.on('insta', (event, arg) => {
     });
     Menu.setApplicationMenu(null);
     win.loadFile('src/components/InstaGram/insta.html');
-    win.setIcon('assets/images/chrome.png');
   }
 });
 
@@ -301,7 +311,6 @@ ipc.on('folder', (event, arg) => {
       Menu.setApplicationMenu(null);
 
       win.loadFile('src/components/Folder/folder_crypt.html');
-      win.setIcon('assets/images/dossier.png');
       win.setResizable(false);
     } else {
       const win = new BrowserWindow({
@@ -317,7 +326,6 @@ ipc.on('folder', (event, arg) => {
       });
       Menu.setApplicationMenu(null);
       win.loadFile('src/components/Folder/folder_decrypt.html');
-      win.setIcon('assets/images/dossier.png');
       win.setResizable(false);
     }
   });
