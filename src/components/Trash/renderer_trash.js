@@ -20,7 +20,7 @@ function hinty () {
           document.getElementById('hint').innerHTML = '<h4> Là! Regardez!  <a class="blink"><img src="../../../assets/images/wtf.png" height="25px"></a> </h4>';
         }
         if (data.note === 'disk') {
-          document.getElementById('hint').innerHTML = '<h4>Rien de visible. Mais supprimer un fichier n\'efface pas forcément les données… Une récupération, ça vous dit? <a class="blink"><img src="../../../assets/images/glass.png" height="25px"></a></h4>';
+          document.getElementById('hint').innerHTML = '<h4>Rien. Mais supprimer un fichier n\'efface pas les données… Une récupération, ça vous dit? <a class="blink"><img src="../../../assets/images/glass.png" height="25px"></a></h4>';
         }
       });
     }
@@ -45,13 +45,11 @@ note.addEventListener('click', function () {
 recup.addEventListener('click', function () {
   storage.get('os', function (error, data) {
     if (error) throw error;
-    if (data.picture === 'disk') {
-      data.picture = 'visible';
-    }
     if (data.note === 'disk') {
       data.note = 'visible';
     }
     ipc.send('saveDataos', data);
+    ipc.send('majDesk');
     maj();
   });
 });
@@ -59,13 +57,11 @@ recup.addEventListener('click', function () {
 empty.addEventListener('click', function () {
   storage.get('os', function (error, data) {
     if (error) throw error;
-    if (data.picture === 'visible') {
-      data.picture = 'disk';
-    }
     if (data.note === 'visible') {
       data.note = 'disk';
     }
     ipc.send('saveDataos', data);
+    ipc.send('majDesk');
     maj();
   });
 });
@@ -78,9 +74,6 @@ function maj () {
     if (document.getElementById('not') != null) {
       document.getElementById('note').removeChild(document.getElementById('not'));
     }
-
-    // remet les images si besoin
-
     if (data.note === 'visible') {
       const myvar = '<div class="" id="not" style=""  type="button"  data-toggle="modal" data-target="#exampleModalCenter">' +
       '<img src = "../../../assets/images/document.png" height="200px" class="" style="padding: 0;"/>' +
@@ -88,7 +81,7 @@ function maj () {
       '</div>';
       document.getElementById('note').insertAdjacentHTML('beforeend', myvar);
     }
-    hinty();
   });
+  hinty();
 }
 maj();
